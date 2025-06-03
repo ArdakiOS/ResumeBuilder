@@ -12,21 +12,29 @@ enum OnbTabs {
 
 struct Onbs: View {
     @State var curPage = OnbTabs.one
-    @Binding var didOnb : Bool
+    @EnvironmentObject var subsMan : ApphudSubsManager
+    @Binding var showOnb : Bool
     var body: some View {
         ZStack{
             Color(hex: "#EEF0F1").ignoresSafeArea()
-            TabView(selection: $curPage) {
-                Onb1(curPage: $curPage)
-                    .tag(OnbTabs.one)
-                Onb2(curPage: $curPage)
-                    .tag(OnbTabs.two)
-                Onb3(didOnb: $didOnb)
-                    .tag(OnbTabs.three)
+            VStack{
+                switch curPage {
+                case .one:
+                    Onb1(curPage: $curPage)
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                case .two:
+                    Onb2(curPage: $curPage)
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                case .three:
+                    PayWall(showPayWall: $showOnb)
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                        .onAppear{
+                            subsMan.getPayWallProducts(id: ApphudPaywallIds.onb.rawValue)
+                        }
+                }
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
         }
-        .animation(.easeInOut, value: curPage)
+        .animation(.easeInOut(duration: 0.6), value: curPage)
     }
 }
 
@@ -81,7 +89,7 @@ struct Onb2 : View {
                 Text("Choose a template\nthat suit your style")
                     .font(.system(size: 26, weight: .semibold))
                     .multilineTextAlignment(.center)
-                    .fixedSize()
+                    
                 Spacer()
                 
                 ZStack{
@@ -113,48 +121,10 @@ struct Onb2 : View {
             }
             .padding(20)
         }
-    }
-}
-
-struct Onb3 : View {
-    @Binding var didOnb : Bool
-    var body: some View {
-        ZStack{
-            Color(hex: "#EEF0F1").ignoresSafeArea()
-            VStack(spacing: 10){
-                Text("All templates\nwithout limitations")
-                    .font(.system(size: 26, weight: .semibold))
-                    .multilineTextAlignment(.center)
-                    .fixedSize()
-                Spacer()
-                
-                Image(.onb3)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxHeight: 530)
-                
-                Spacer()
-                
-            }
-            .padding(20)
-            
-            VStack{
-                Spacer()
-                Button{
-                    didOnb = true
-                    UserDefaults.standard.set(true, forKey: "onb")
-                } label: {
-                    Text("Next")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 20, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 65)
-                        .background(Color(hex: "#1A73E8"))
-                        .clipShape(RoundedRectangle(cornerRadius: 30))
-                    
-                }
-            }
-            .padding(20)
+        .onAppear{
+            requestAppReview()
         }
     }
 }
+
+

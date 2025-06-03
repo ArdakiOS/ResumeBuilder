@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoadingView: View {
-    let timer = Timer.publish(every: 0.7, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.8, on: .main, in: .common).autoconnect()
     @Binding var progress : Double
     var body: some View {
         ZStack{
@@ -33,19 +33,9 @@ struct LoadingView: View {
                 
             }
         }
+        .animation(.easeInOut(duration: 0.8), value: progress)
         .onReceive(timer) { _ in
-            let random = Double.random(in: 0...0.2)
-            if progress + random > 1 {
-                withAnimation {
-                    progress = 1
-                }
-                
-            } else {
-                withAnimation {
-                    progress += random
-                }
-                
-            }
+            progress += 0.49
         }
     }
 }

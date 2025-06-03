@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import PDFKit
 
 struct SavedResumes: View {
     @Environment(\.dismiss) var dismiss
     @State var presentSettings = false
     @State var presentDetail = false
+    @ObservedObject var vm : ResumeCreationViewModel
+    @State var selectedPDF : URL?
+    @EnvironmentObject var subsMan : ApphudSubsManager
     var body: some View {
         ZStack{
             Color(hex: "#EEF0F1").ignoresSafeArea()
@@ -43,11 +47,12 @@ struct SavedResumes: View {
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 20) {
-                        ForEach(0..<2, id: \.self){cv in
+                        ForEach(vm.pdfHistoryURLS, id: \.self){cv in
                             Button{
+                                selectedPDF = cv
                                 presentDetail = true
                             } label: {
-                                RoundedRectangle(cornerRadius: 30).fill(Color(hex: "#DBD8D8"))
+                                PDFViewer(url: cv)
                                     .frame(height: 227)
                             }
                             
@@ -62,14 +67,29 @@ struct SavedResumes: View {
         .navigationDestination(isPresented: $presentSettings) {
             Settings()
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
         .navigationDestination(isPresented: $presentDetail) {
-            PreviewSavedResume()
+            PreviewSavedResume(selectedPDF: selectedPDF, vm: vm)
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
     }
 }
 
+struct PDFViewer: UIViewRepresentable {
+    let url: URL
+
+    func makeUIView(context: Context) -> PDFView {
+        let pdfView = PDFView()
+        pdfView.autoScales = true
+        pdfView.document = PDFDocument(url: url)
+        return pdfView
+    }
+
+    func updateUIView(_ uiView: PDFView, context: Context) {}
+}
+
 #Preview {
-    SavedResumes()
+    SavedResumes(vm: ResumeCreationViewModel())
 }

@@ -9,17 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State var progress = 0.0
-    @State var didOnb = UserDefaults.standard.object(forKey: "onb") as? Bool ?? false
+    @AppStorage("onb") var showOnb = true
     var body: some View {
         ZStack{
             Color(hex: "#EEF0F1").ignoresSafeArea()
             if progress < 1 {
                 LoadingView(progress: $progress)
             } else {
-                if didOnb {
-                    HomeView()
+                if showOnb {
+                    Onbs(showOnb: $showOnb)
                 } else {
-                    Onbs(didOnb: $didOnb)
+                    HomeView()
                 }
             }
         }

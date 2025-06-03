@@ -10,6 +10,9 @@ import SwiftUI
 struct PreviewSavedResume: View {
     @State var presentSettings = false
     @Environment(\.dismiss) var dismiss
+    @State var selectedPDF : URL?
+    @ObservedObject var vm : ResumeCreationViewModel
+    @EnvironmentObject var subsMan : ApphudSubsManager
     var body: some View {
         ZStack{
             Color(hex: "#EEF0F1").ignoresSafeArea()
@@ -40,18 +43,20 @@ struct PreviewSavedResume: View {
                 }
                 .padding(.bottom, 10)
                 Spacer()
-                
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color(hex: "#EAE7E7"))
-                    .padding(.horizontal)
-                    .shadow(color: Color(hex: "#2E2D2D").opacity(0.5), radius: 18, x: 0, y: 3)
-                
+                if let selectedPDF = selectedPDF {
+                    PDFViewer(url: selectedPDF)
+                        .frame(maxWidth: 290, maxHeight: 427)
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .padding(.horizontal)
+                        .shadow(color: Color(hex: "#2E2D2D").opacity(0.5), radius: 18, x: 0, y: 3)
+                }
                 Spacer()
                 
                 Button{
-                    
+                    guard let url = selectedPDF else {return}
+                    sharePDFURL(url: url)
                 } label: {
-                    Text("Edit")
+                    Text("Share")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
@@ -60,7 +65,9 @@ struct PreviewSavedResume: View {
                         .clipShape(RoundedRectangle(cornerRadius: 30))
                 }
                 Button{
-                    
+                    guard let url = selectedPDF else {return}
+                    vm.deletePDF(at: url)
+                    dismiss()
                 } label: {
                     Text("Delete")
                         .font(.system(size: 20, weight: .semibold))
@@ -77,10 +84,22 @@ struct PreviewSavedResume: View {
         .navigationDestination(isPresented: $presentSettings) {
             Settings()
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
     }
 }
 
 #Preview {
-    PreviewSavedResume()
+    PreviewSavedResume(vm: ResumeCreationViewModel())
+}
+
+func sharePDFURL(url : URL) {
+    
+        
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        
+        // Get the topmost view controller
+        if let topVC = UIApplication.shared.windows.first?.rootViewController {
+            topVC.present(activityViewController, animated: true)
+        }
 }

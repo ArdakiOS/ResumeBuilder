@@ -1,0 +1,82 @@
+/* 
+  Localizable.strings
+  ResumeBuilder
+
+  Created by Ardak Tursunbayev on 14.03.2025.
+  
+*/
+"Start by filling out\nyour profile" = "Начните с заполнения\nвашего профиля";
+"Next" = "Далее";
+"Choose a template\nthat suit your style" = "Выберите шаблон,\nкоторый подходит вашему стилю";
+"All templates\nwithout limitations" = "Все шаблоны\nбез ограничений";
+"Restore" = "Восстановить";
+"Terms" = "Условия";
+"Privacy" = "Конфиденциальность";
+"Weeky" = "Еженедельно";
+"Yearly" = "Ежегодно";
+"Preview" = "Предпросмотр";
+"Export" = "Экспорт";
+"Email" = "Электронная почта";
+"Please enter valid email" = "Пожалуйста, введите корректный адрес электронной почты";
+"Phone" = "Телефон";
+"Address" = "Адрес";
+"Delete" = "Удалить";
+"Additional contact info" = "Дополнительная контактная информация";
+"Add more" = "Добавить еще";
+"University name" = "Название университета";
+"Specialization" = "Специализация";
+"Resume Builder" = "Конструктор резюме";
+"Info" = "Информация";
+"Contact" = "Контакт";
+
+"Work" = "Работа";
+"Skills" = "Навыки";
+"Projects" = "Проекты";
+"Language" = "Язык";
+"Education" = "Образование";
+"Summary" = "Обо мне";
+
+"Template" = "Шаблон";
+"First name" = "Имя";
+"Last name" = "Фамилия";
+"Job title" = "Должность";
+"Language" = "Язык";
+"Please indicate your level" = "Пожалуйста, укажите ваш уровень";
+"Name of Project" = "Название проекта";
+"Short summary about yourself" = "Краткое описание о себе";
+"Skill" = "Навык";
+"Please indicate your level" = "Пожалуйста, укажите ваш уровень";
+"Short summary about the project" = "Краткое описание проекта";
+"Delete" = "Удалить";
+"Interest %@" = "Интерес %@";
+"Make sure you provided all required information" = "Убедитесь, что вы предоставили всю необходимую информацию";
+"Make sure you provided valid email" = "Убедитесь, что вы указали корректный адрес электронной почты";
+"Missing information" = "Отсутствующая информация";
+"Save" = "Сохранить";
+"Organization name" = "Название организации";
+"Job title" = "Должность";
+"Work tasks" = "Рабочие задачи";
+"Start Date" = "Дата начала";
+"End Date" = "Дата окончания";
+"I presently work here" = "В настоящее время я работаю здесь";
+"No work experience" = "Нет опыта работы";
+"Export format" = "Формат экспорта";
+"Export" = "Экспорт";
+"File name" = "Имя файла";
+"Your resume is created" = "Ваше резюме создано";
+"please don't close the application" = "Пожалуйста, не закрывайте приложение";
+"Your professional resume" = "Ваше профессиональное резюме";
+"Create cv using a variety\nof templates" = "Создайте резюме, используя\nразличные шаблоны";
+"Get started" = "Начать";
+"My resume" = "Мое резюме";
+"Try Premium" = "Попробуйте Premium";
+"Get unlimited access" = "Получите неограниченный доступ";
+"Upgrade Now" = "Обновить сейчас";
+"My resume" = "Мое резюме";
+"Share" = "Поделиться";
+"Delete" = "Удалить";
+"Settings" = "Настройки";
+"Privacy Policy" = "Конфиденциальности";
+"Terms of use" = "Условия использования";
+"Share" = "Поделиться";
+"Rate us" = "Оцените нас";

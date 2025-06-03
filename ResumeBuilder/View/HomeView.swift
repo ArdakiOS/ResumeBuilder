@@ -11,12 +11,14 @@ struct HomeView: View {
     @State var presentSettings = false
     @State var presentResumeBuilder = false
     @State var presentMyResumes = false
+    @StateObject var vm = ResumeCreationViewModel()
+    @EnvironmentObject var subsMan : ApphudSubsManager
     var body: some View {
         ZStack{
             Color(hex: "#EEF0F1").ignoresSafeArea()
             VStack(spacing: 10){
                 HStack{
-                    Text("Resume Builder")
+                    Text("Resume Builder   ")
                         .font(.system(size: 22, weight: .semibold))
                         .foregroundStyle(.black)
                     Spacer()
@@ -35,6 +37,7 @@ struct HomeView: View {
                 Spacer()
                 
                 Text("Your professional resume")
+                    .multilineTextAlignment(.center)
                     .font(.system(size: 29, weight: .semibold))
                     .foregroundStyle(.black)
                 
@@ -74,14 +77,17 @@ struct HomeView: View {
         .navigationDestination(isPresented: $presentSettings) {
             Settings()
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
         .navigationDestination(isPresented: $presentMyResumes) {
-            SavedResumes()
+            SavedResumes(vm: vm)
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
         .navigationDestination(isPresented: $presentResumeBuilder) {
-            ResumeCreationView()
+            ResumeCreationView(vm: vm)
                 .navigationBarBackButtonHidden()
+                .environmentObject(subsMan)
         }
     }
 }

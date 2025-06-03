@@ -1,0 +1,82 @@
+/* 
+  Localizable.strings
+  ResumeBuilder
+
+  Created by Ardak Tursunbayev on 14.03.2025.
+  
+*/
+"Start by filling out\nyour profile" = "Beginnen Sie mit dem Ausfüllen\nIhres Profils";
+"Next" = "Weiter";
+"Choose a template\nthat suit your style" = "Wählen Sie eine Vorlage,\ndie zu Ihrem Stil passt";
+"All templates\nwithout limitations" = "Alle Vorlagen\nohne Einschränkungen";
+"Restore" = "Wiederherstellen";
+"Terms" = "Bedingungen";
+"Privacy" = "Datenschutz";
+"Weeky" = "Wöchentlich";
+"Yearly" = "Jährlich";
+"Preview" = "Vorschau";
+"Export" = "Exportieren";
+"Email" = "E-Mail";
+"Please enter valid email" = "Bitte geben Sie eine gültige E-Mail-Adresse ein";
+"Phone" = "Telefon";
+"Address" = "Adresse";
+"Delete" = "Löschen";
+"Additional contact info" = "Zusätzliche Kontaktinformationen";
+"Add more" = "Mehr hinzufügen";
+"University name" = "Universitätsname";
+"Specialization" = "Spezialisierung";
+"Resume Builder" = "Lebenslauf-Generator";
+"Info" = "Info";
+"Contact" = "Kontakt";
+
+"Work" = "Arbeit";
+"Skills" = "Fähigkeiten";
+"Projects" = "Projekte";
+"Language" = "Sprache";
+"Education" = "Ausbildung";
+"Summary" = "Zusammenfassung";
+
+"Template" = "Vorlage";
+"First name" = "Vorname";
+"Last name" = "Nachname";
+"Job title" = "Berufsbezeichnung";
+"Language" = "Sprache";
+"Please indicate your level" = "Bitte geben Sie Ihr Niveau an";
+"Name of Project" = "Projektname";
+"Short summary about yourself" = "Kurze Zusammenfassung über Sie";
+"Skill" = "Fähigkeit";
+"Please indicate your level" = "Bitte geben Sie Ihr Niveau an";
+"Short summary about the project" = "Kurze Zusammenfassung des Projekts";
+"Delete" = "Löschen";
+"Interest %@" = "Interesse %@";
+"Make sure you provided all required information" = "Stellen Sie sicher, dass Sie alle erforderlichen Informationen angegeben haben";
+"Make sure you provided valid email" = "Stellen Sie sicher, dass Sie eine gültige E-Mail-Adresse angegeben haben";
+"Missing information" = "Fehlende Informationen";
+"Save" = "Speichern";
+"Organization name" = "Organisationsname";
+"Job title" = "Berufsbezeichnung";
+"Work tasks" = "Arbeitsaufgaben";
+"Start Date" = "Startdatum";
+"End Date" = "Enddatum";
+"I presently work here" = "Ich arbeite derzeit hier";
+"No work experience" = "Keine Berufserfahrung";
+"Export format" = "Exportformat";
+"Export" = "Exportieren";
+"File name" = "Dateiname";
+"Your resume is created" = "Ihr Lebenslauf wurde erstellt";
+"please don't close the application" = "Bitte schließen Sie die Anwendung nicht";
+"Your professional resume" = "Ihr professioneller Lebenslauf";
+"Create cv using a variety\nof templates" = "Erstellen Sie einen Lebenslauf mit\nverschiedenen Vorlagen";
+"Get started" = "Loslegen";
+"My resume" = "Mein Lebenslauf";
+"Try Premium" = "Premium ausprobieren";
+"Get unlimited access" = "Erhalten Sie unbegrenzten Zugriff";
+"Upgrade Now" = "Jetzt upgraden";
+"My resume" = "Mein Lebenslauf";
+"Share" = "Teilen";
+"Delete" = "Löschen";
+"Settings" = "Einstellungen";
+"Privacy Policy" = "Datenschutzrichtlinie";
+"Terms of use" = "Nutzungsbedingungen";
+"Share" = "Teilen";
+"Rate us" = "Bewerten Sie uns";
